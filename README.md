@@ -1,5 +1,3 @@
-# IowaFinished
-
 # IOWA HOUSE PREDICTION
  R Project - John Manning
  
