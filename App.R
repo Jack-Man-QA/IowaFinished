@@ -33,7 +33,6 @@ options(scipen = 9999)                                                          
                                                                                                                                       #|
 #==========================================================(SETTING UP WORKSPACE)=====================================================#|
 #Setting up workspace & Reading in the database & sourcing into connect.R for database connections                                    #|
-                                                                                                                                      #|
 source("Connection.R")                                                                                                                #|
                                                                                                                                       #|
 #Turning all 0's in the database to 1 & then splitting the data into training and test data for the prediction                        #|
@@ -48,7 +47,9 @@ source("Connection.R")                                                          
 #'@examples                                                                                                                           #|
 #'Data <- data[1:100,]                                                                                                                #|
 #'data <- data[1000:2000,]                                                                                                            #|
-#'@export                                                                                                                             #|
+#'@export       
+database <- getData("root", "password", "iowa_db", "127.0.0.1", "backup")    
+database
 database[database=="0"] <- 1                                                                                                          #|
 ProjectDataTraining <- database[1:1000,]                                                                                              #|
 ProjectDataTest <- database[1001:1460,]                                                                                               #|

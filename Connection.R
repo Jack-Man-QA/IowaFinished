@@ -10,17 +10,19 @@ library("RMySQL")                                                               
                                                                                                                                       #|
 #========================================================(MAKING THE CONNECTION TO SQL)===============================================#|
 #Making the connection to a value called "con"                                                                                        #|
-                                                                                                                                      #|
-con <- dbConnect(MySQL(),                                                                                                             #|
-             user="root", password="password",                                                                                            #|
-             dbname="iowa_db", host="127.0.0.1")                                                                                            #|
-                                                                                                                                      #|
-#Sending query to SQL and fetching the database into R with all columns: Clearing and disconnecting the database afterwards           #|
-                                                                                                                                      #|
-rsl <-dbSendQuery(con, "SELECT * FROM iowa_db.backup;")                                                                                     #|
-database <- fetch(rsl, n = -1)                                                                                                        #|
-dbClearResult(rsl)                                                                                                                    #|
-dbDisconnect(con)                                                                                                                     #|
+
+
+getData <- function(user, password, dbname, host, table) {
+  con <- dbConnect(MySQL(),                                                                                                             #|
+                   user=user, password=password,                                                                                            #|
+                   dbname=dbname, host=host)                                                                                            #|
+
+  rsl <-dbSendQuery(con, paste("SELECT * FROM ", dbname, ".", table, ";", sep=""))                                                                                     #|
+  database <- fetch(rsl, n = -1)                                                                                                        #|
+  dbClearResult(rsl)                                                                                                                    #|
+  dbDisconnect(con) #|
+  return(database)
+}                                                                                                                                      #|
                                                                                                                                       #|
 #========================================================(DBCONNECTIONKILL FUNCTION)==================================================#|
 #'@killDbConnections Creating a function that kills all connections incase the connection stays open                                  #|
@@ -38,5 +40,4 @@ killDbConnections <- function () {                                              
                                                                                                                                       #|
 }                                                                                                                                     #|
                                                                                                                                       #|
-?killDbConnections
 #=====================================================================================================================================#|

@@ -15,7 +15,6 @@ options(scipen = 9999)                                                          
                                                                                                                                                             #|
 #Setting up workspace to Project location for files                                                                                                         #|
                                                                                                                                                             #|
-setwd("C:/Users/Admin/Desktop/RStudio&Files/Project")                                                                                                       #|
 ProjectAmend <- read.table("TrainNormal.csv", stringsAsFactors = FALSE, header = TRUE, sep = ",")                                                           #|
                                                                                                                                                             #|
 #========================================================================(CREATING THE UI)==================================================================#|
@@ -83,7 +82,6 @@ TrainNormal2 <- data.frame(SalePrice,LotArea,OverallCond,YearBuilt,CentralAir,Ki
                                                                                                                                                             #|
 #Writing the dataframe to a document                                                                                                                        #|
                                                                                                                                                             #|
-setwd("C:/Users/Admin/Desktop/RStudio&Files/Project")                                                                                                       #|
 write.csv(TrainNormal2, file = "TrainNormal2.csv")                                                                                                          #|
                                                                                                                                                             #|
 #Sourcing the project file to create the prediction                                                                                                         #|
