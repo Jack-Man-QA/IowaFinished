@@ -12,12 +12,12 @@ library("RMySQL")                                                               
 #Making the connection to a value called "con"                                                                                        #|
                                                                                                                                       #|
 con <- dbConnect(MySQL(),                                                                                                             #|
-             user="root", password="pass",                                                                                            #|
-             dbname="r", host="127.0.0.1")                                                                                            #|
+             user="root", password="password",                                                                                            #|
+             dbname="iowa_db", host="127.0.0.1")                                                                                            #|
                                                                                                                                       #|
 #Sending query to SQL and fetching the database into R with all columns: Clearing and disconnecting the database afterwards           #|
                                                                                                                                       #|
-rsl <-dbSendQuery(con, "SELECT * FROM r.backup;")                                                                                     #|
+rsl <-dbSendQuery(con, "SELECT * FROM iowa_db.backup;")                                                                                     #|
 database <- fetch(rsl, n = -1)                                                                                                        #|
 dbClearResult(rsl)                                                                                                                    #|
 dbDisconnect(con)                                                                                                                     #|
