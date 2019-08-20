@@ -34,7 +34,6 @@ options(scipen = 9999)                                                          
 #==========================================================(SETTING UP WORKSPACE)=====================================================#|
 #Setting up workspace & Reading in the database & sourcing into connect.R for database connections                                    #|
                                                                                                                                       #|
-setwd("C:/Users/Admin/Desktop/RStudio&Files/Project")                                                                                 #|
 source("Connection.R")                                                                                                                #|
                                                                                                                                       #|
 #Turning all 0's in the database to 1 & then splitting the data into training and test data for the prediction                        #|
@@ -266,7 +265,6 @@ hist(final.model$residuals)                                                     
 qqnorm(final.model$residuals)                                                                                                         #|
 qqline(final.model$residuals)                                                                                                         #|
                                                                                                                                       #|
-setwd("C:/Users/Admin/Desktop/RStudio&Files/Project")                                                                                 #|
 write.csv(Train_normal_3,'TrainNormal.csv')                                                                                           #|
                                                                                                                                       #|
 ProjectAmend <- read.table("TrainNormal.csv", stringsAsFactors = FALSE, header = TRUE, sep = ",")                                     #|
@@ -305,7 +303,6 @@ exp(prediction)                                                                 
 #'prediction <- predict(model, data[1000,])                                                                                           #|
                                                                                                                                       #| 
 predictions <- function(){                                                                                                            #|
-setwd("C:/Users/Admin/Desktop/RStudio&Files/Project")                                                                                 #|
                                                                                                                                       #|
 write.csv(Train_normal_3, file = "TrainNormal.csv")                                                                                   #|
 traindata3 <- read.table(file = "TrainNormal.csv", header = TRUE, sep = ",")                                                          #|
